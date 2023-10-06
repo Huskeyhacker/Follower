@@ -1,0 +1,27 @@
+from instabot import Bot
+from time import sleep
+
+# Initialize the bot
+bot = Bot()
+
+# Input your Instagram username (without the @)
+username = input("muhxxd__")
+
+# Login to your Instagram account
+bot.login(username=username)
+
+# Set up some basic configurations (e.g., follow limit, antiban)
+bot.set_do_follow(True, percentage=100)
+bot.set_max_follows_per_day(5000)
+bot.set_verbosity(0)
+bot.set_use_clarifai(False)
+bot.set_sleep_reduce(0.3)
+
+# Start following accounts
+bot.follow_followers(username)
+
+# Sleep for 24 hours
+sleep(24 * 60 * 60)
+
+# Logout
+bot.logout()
